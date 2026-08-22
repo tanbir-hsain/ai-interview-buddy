@@ -4,7 +4,7 @@
 
 AI Interview Buddy is a full-stack web application that helps users prepare for technical interviews by asking AI-powered interview questions.
 
-Users can enter interview-related questions through a simple web interface. The React frontend sends the question to a FastAPI backend through REST APIs. The backend communicates with the Google Gemini API to generate interview-focused responses and stores the conversation in MongoDB.
+Users can enter interview-related questions through a simple web interface. The React frontend sends the question to the FastAPI backend through REST APIs. The backend communicates with the Google Gemini API to generate interview-focused responses and stores the conversation in MongoDB.
 
 This project demonstrates Frontend Development, Backend Development, REST API Integration, AI API Integration, Database Integration, Docker, and GitHub Actions (CI).
 
@@ -71,7 +71,7 @@ Response displayed to User
 5. Gemini generates the answer.
 6. FastAPI stores the question and answer in MongoDB.
 7. FastAPI returns the response.
-8. React displays the answer to the user.
+8. React displays the answer.
 
 ---
 
