@@ -87,6 +87,18 @@ Response displayed to User
 
 ---
 
+## Screenshots
+
+### Application Interface
+
+![AI Interview Buddy UI](images/app-ui.png)
+
+### Docker Containers
+
+![Docker Desktop](images/docker-containers.png)
+
+---
+
 ## Setup Instructions
 
 ### Clone Repository
@@ -119,7 +131,7 @@ docker compose up --build
 
 Open:
 
-```
+```text
 http://localhost:5173
 ```
 
