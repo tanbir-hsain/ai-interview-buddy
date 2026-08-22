@@ -91,11 +91,11 @@ Response displayed to User
 
 ### Application Interface
 
-![AI Interview Buddy UI](images/app-ui.png)
+![AI Interview Buddy UI](screenshots/app-ui.png)
 
 ### Docker Containers
 
-![Docker Desktop](images/docker-containers.png)
+![Docker Desktop](screenshots/docker-containers.png)
 
 ---
 
