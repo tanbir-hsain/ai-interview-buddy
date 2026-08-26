@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import "./App.css";
@@ -40,11 +41,13 @@ function App() {
                 {loading ? "Loading..." : "Ask AI"}
             </button>
 
-            <div className="answer">
+           // this is className Container
+            <div className="answer">  
                 <ReactMarkdown>{answer}</ReactMarkdown>
             </div>
         </div>
-    );
+    ); 
+    
 }
 
 export default App;

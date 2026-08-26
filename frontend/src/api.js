@@ -1,3 +1,4 @@
+
 export function askAI(question) {
     return fetch("http://127.0.0.1:5000/api/chat/", {
         method: "POST",
@@ -7,3 +8,5 @@ export function askAI(question) {
         body: JSON.stringify({ question })
     }).then(res => res.json());
 }
+
+

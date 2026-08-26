@@ -28,6 +28,7 @@ def chat(request: ChatRequest):
             "answer": answer,
             "created_at": datetime.utcnow()
         })
+        
     except DuplicateKeyError:
         data = collection.find_one({"question": question})
         return {"answer": data["answer"]}
