@@ -1,26 +1,31 @@
-# AI Interview Buddy
+Absolutely. Here is the **whole README again from the beginning**, with the Markdown formatting preserved exactly so you can copy it directly into `README.md`.
+
+```markdown
+# Email Spam Extension
 
 ## Project Description
 
-AI Interview Buddy is a full-stack web application that helps users prepare for technical interviews by asking AI-powered interview questions.
+Email Spam Extension is a full-stack email spam detection system that combines a Chrome browser extension, Spring Boot backend, Flask-based Machine Learning API, and Natural Language Processing.
 
-Users can enter interview-related questions through a simple web interface. The React frontend sends the question to the FastAPI backend through REST APIs. The backend communicates with the Google Gemini API to generate interview-focused responses and stores the conversation in MongoDB.
+The browser extension automatically extracts email content from Gmail and sends it to the Spring Boot backend through a REST API. The Spring Boot backend communicates with the Flask Machine Learning service, which analyzes the email using a trained spam classification model and returns the prediction.
 
-This project demonstrates Frontend Development, Backend Development, REST API Integration, AI API Integration, Database Integration, Docker, and GitHub Actions (CI).
+This project demonstrates Browser Extension Development, Backend Development, REST API Integration, Machine Learning, Natural Language Processing, and GitHub Actions (CI).
 
 ---
 
 ## Tech Stack
 
-- React
-- JavaScript
-- CSS
-- FastAPI
+- Java
+- Spring Boot
 - Python
-- MongoDB
-- Google Gemini API
-- Docker
-- Docker Compose
+- Flask
+- Scikit-learn
+- Pandas
+- NumPy
+- JavaScript
+- Chrome Browser Extension
+- REST APIs
+- Maven
 - Git
 - GitHub
 - GitHub Actions (CI)
@@ -32,70 +37,134 @@ This project demonstrates Frontend Development, Backend Development, REST API In
 ```text
 User
    ↓
-React Frontend
+Gmail
    ↓
-REST API
+Chrome Browser Extension
    ↓
-FastAPI Backend
+Spring Boot REST API
    ↓
-Google Gemini API
+Flask Machine Learning API
    ↓
-AI Response
+TF-IDF Vectorization
    ↓
-MongoDB
+Multinomial Naive Bayes Model
    ↓
-Response displayed to User
+SPAM / HAM Prediction
+   ↓
+Spring Boot
+   ↓
+Browser Extension
+   ↓
+Prediction displayed in Gmail
 ```
 
 ---
 
 ## Features
 
-- AI-powered interview question answering
-- React frontend
-- FastAPI backend
-- Google Gemini API integration
-- MongoDB chat history storage
-- REST API communication
-- Dockerized application
+- Gmail browser extension for email analysis
+- Automatic email content extraction
+- Real-time spam/ham prediction
+- Spring Boot REST API
+- Flask Machine Learning API
+- TF-IDF text vectorization
+- Multinomial Naive Bayes classification
+- Input validation
+- Global exception handling
+- REST API communication between Java and Python services
 - GitHub Actions CI workflow
 
 ---
 
 ## Project Workflow
 
-1. User enters an interview question.
-2. React sends the question to the FastAPI backend.
-3. FastAPI receives the request.
-4. FastAPI sends the question to the Google Gemini API.
-5. Gemini generates the answer.
-6. FastAPI stores the question and answer in MongoDB.
-7. FastAPI returns the response.
-8. React displays the answer.
+1. User opens an email in Gmail.
+2. Chrome Extension extracts the email content.
+3. Extension sends the email text to the Spring Boot backend.
+4. Spring Boot validates the request.
+5. Spring Boot sends the email text to the Flask Machine Learning API.
+6. Flask preprocesses the email text.
+7. TF-IDF converts the text into numerical features.
+8. Multinomial Naive Bayes predicts whether the email is SPAM or HAM.
+9. Flask returns the prediction.
+10. Spring Boot sends the result back to the browser extension.
+11. The extension displays the spam detection result inside Gmail.
 
 ---
 
-## AI Model
+## Machine Learning Model
 
-### Provider
+### Algorithm
 
-- Google Gemini API
+- Multinomial Naive Bayes
 
-### Purpose
+### Text Processing
 
-- Interview question answering
+- Text cleaning
+- Lowercase conversion
+- Special-character removal
+- TF-IDF Vectorization
+
+### Dataset
+
+- spam.csv
+
+### Saved Model Files
+
+- spam_model.pkl
+- vectorizer.pkl
+
+### Training
+
+The model is trained using the train_model.py script.
+
+The dataset is divided into training and testing sets, and the trained model and TF-IDF vectorizer are saved for use by the Flask API.
 
 ---
 
-## Screenshots
+## Project Structure
 
-### Application Interface
-
-![AI Interview Buddy UI](screenshots/app-ui.png)
-
-### Docker Containers
-
-![Docker Desktop](screenshots/docker-containers.png)
+```text
+email-spam-extension/
+│
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+│
+├── email-extension/
+│   ├── content.js
+│   └── manifest.json
+│
+├── sts/
+│   ├── src/
+│   │   └── main/
+│   │       ├── java/
+│   │       │   └── com/scs/emailthreat/
+│   │       │       ├── controller/
+│   │       │       │   └── EmailController.java
+│   │       │       ├── dto/
+│   │       │       │   ├── EmailRequestDTO.java
+│   │       │       │   └── EmailResponseDTO.java
+│   │       │       ├── exception/
+│   │       │       │   └── GlobalExceptionHandler.java
+│   │       │       ├── service/
+│   │       │       │   └── EmailService.java
+│   │       │       └── SmartEmailThreatDetectionSystemApplication.java
+│   │       │
+│   │       └── resources/
+│   │
+│   ├── pom.xml
+│   ├── mvnw
+│   └── mvnw.cmd
+│
+├── app.py
+├── train_model.py
+├── spam.csv
+├── spam_model.pkl
+├── vectorizer.pkl
+├── requirements.txt
+└── README.md
+```
 
 ---
 
@@ -104,88 +173,164 @@ Response displayed to User
 ### Clone Repository
 
 ```bash
-git clone https://github.com/tanbir-hsain/ai-interview-buddy.git
-```
-
-```bash
-cd ai-interview-buddy
+git clone https://github.com/tanbir-hsain/email-spam-extension.git
+cd email-spam-extension
 ```
 
 ---
 
-### Environment Variables
+### Machine Learning Service
 
-Create a `.env` file inside the backend folder and add:
+Install Python dependencies:
 
-```text
-GEMINI_API_KEY=YOUR_API_KEY
+```bash
+pip install -r requirements.txt
+```
+
+Run the Flask application:
+
+```bash
+python app.py
 ```
 
 ---
 
-### Run with Docker
+### Backend
+
+Navigate to the Spring Boot project:
 
 ```bash
-docker compose up --build
+cd sts
 ```
 
-Open:
+Run the application:
+
+```bash
+./mvnw spring-boot:run
+```
+
+On Windows:
+
+```bash
+mvnw.cmd spring-boot:run
+```
+
+The Spring Boot backend runs on:
 
 ```text
-http://localhost:5173
+http://localhost:8080
 ```
+
+---
+
+### Browser Extension
+
+Open Google Chrome.
+
+Navigate to:
+
+```text
+chrome://extensions/
+```
+
+Enable Developer Mode.
+
+Select Load unpacked.
+
+Select the email-extension folder.
+
+Open Gmail and open an email.
+
+The extension sends the email content to the backend for analysis.
 
 ---
 
 ## API Endpoint
 
-### Request
+### Analyze Email
 
 ```http
-POST /api/chat
+POST /email/analyze
 ```
 
-Example Request
+### Request
 
 ```json
 {
-  "question": "Explain HTML block-level elements."
+  "emailText": "Congratulations! You won a lottery."
 }
 ```
 
-Example Response
+### Response
 
 ```json
 {
-  "answer": "Block-level elements always start on a new line and take up the full available width."
+  "result": "SPAM",
+  "confidence": 1.0
 }
 ```
+
+The current Spring Boot service returns a confidence value of 1.0 rather than the actual confidence score from the Machine Learning model.
+
+### Invalid Request
+
+```json
+{
+  "result": "INVALID_INPUT",
+  "confidence": 0.0
+}
+```
+
+---
+
+## CI / GitHub Actions
+
+The project uses GitHub Actions for Continuous Integration.
+
+The CI workflow automatically checks the project whenever changes are pushed to GitHub.
+
+The workflow includes checks for:
+
+- Python environment
+- Python dependencies
+- Java/Maven project
+- Build validation
+
+This helps ensure that changes pushed to the repository do not break the project.
 
 ---
 
 ## Skills Demonstrated
 
-- React
-- FastAPI
+- Java
+- Spring Boot
+- Python
+- Flask
 - REST API Development
-- MongoDB
-- Google Gemini API Integration
-- Docker
-- Docker Compose
+- Machine Learning
+- Natural Language Processing
+- Scikit-learn
+- TF-IDF
+- Naive Bayes
+- Chrome Extension Development
+- API Integration
+- Maven
 - Git & GitHub
 - GitHub Actions (CI)
-- Full Stack Development
+- Full-Stack Development
 
 ---
 
 ## Future Improvements
 
-- User authentication
-- Chat history management
-- Markdown rendering improvements
-- Deploy using Docker on AWS EC2
-- Add unit and integration tests
-- Continuous Deployment (CD)
+- Deploy Spring Boot and Flask services to AWS
+- Replace localhost APIs with cloud endpoints
+- Improve spam classification accuracy with larger datasets
+- Add automated unit and integration tests
+- Add confidence scoring from the Machine Learning model
+- Improve Gmail UI integration
+- Support multiple email providers
+- Add Continuous Deployment (CD)
 
 ---
 
@@ -193,8 +338,11 @@ Example Response
 
 **Tanbir Hussain**
 
-GitHub  
-https://github.com/tanbir-hsain
+GitHub
 
-LinkedIn  
+https://github.com/tanbir-hsain/email-spam-extension
+
+LinkedIn
+
 https://www.linkedin.com/in/tanbir-hussain-76320b414
+```
